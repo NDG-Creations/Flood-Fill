@@ -9,13 +9,12 @@
     <meta name="theme-color" content="#09111f" />
     <meta name="description" content="FloodFill - A puzzle game" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png" />
-    <link rel="apple-touch-icon" href="/images/icon-192.png" />
     <title>FloodFill Game</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
       window.supabase = window.supabase || {};
-      window.supabase.createClient = function () {
+      const _supabase = window.supabase;
+      _supabase.createClient = function () {
         return window.supabase.createClient(
           "https://lpnropkxykmarndtnhan.supabase.co",
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwbnJvcGt4eWttYXJuZHRuaGFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNjA3ODYsImV4cCI6MjA5MjgzNjc4Nn0.DjtK4jrCYa3sxT1qnt0nUelcgbKxZfcy9K9GU6pgs_s"
