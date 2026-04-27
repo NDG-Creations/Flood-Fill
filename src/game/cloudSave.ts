@@ -132,7 +132,12 @@ export const cloudSave = {
   async signInWithGoogle() {
     const client = getSupabaseClient();
     if (!client) throw new Error("Supabase client not available");
-    return client.auth.signInWithOAuth({ provider: "google" });
+    return client.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: window.location.origin,
+      },
+    });
   },
 
   mergeSnapshots,
