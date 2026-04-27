@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "goal": "Replace the lightweight auth flow with a professional multi-step sign-in/register experience while preserving the existing guest path, game/levels/maps flow, and cloud save compatibility for Google accounts and guest mode.",
+  "status": "completed",
+  "createdAt": "2026-04-27T00:38:43.476Z",
+  "tasks": [
+    {
+      "index": 0,
+      "name": "Set Up the Welcome Screen",
+      "description": "Create a full-screen React auth container that appears before the game flow and immediately shows a branded welcome screen with Sign in and Guest actions. Keep the existing guest route unchanged. Use responsive layout rules for mobile-first sizing, safe-area padding, and clear visual feedback so users see the new entry screen instantly on load.",
+      "status": "completed",
+      "acceptanceCriteria": [
+        "A full-screen welcome screen is visible immediately on app load",
+        "The screen shows a Sign in option and a Guest option",
+        "Tapping or clicking Guest enters the existing guest flow without skipping levels or maps screens incorrectly"
+      ],
+      "codeHints": "Use a top-level authStep state like 'welcome' | 'signin' | 'register'. Render this gate before the game shell. In React, keep flow state in useState and persistent auth/session data in useRef or existing store/context. Apply mobile-first CSS with min-height: 100dvh, safe-area insets, and large tap targets."
+    },
+    {
+      "index": 1,
+      "name": "Add Sign In and Registration Pages",
+      "description": "Build a multi-step auth UI: Sign in page with email, password, submit button, and Register now link; registration page with Google creation option plus manual form for name, email, password, and date of birth. After successful registration, route back to Sign in with success messaging. Preserve compatibility with existing Google-backed saves and current guest identity handling.",
+      "status": "completed",
+      "acceptanceCriteria": [
+        "Selecting Sign in opens a page with email and password fields and a Register now link",
+        "Selecting Register now opens a registration page with a Google option and manual fields for name, email, password, and date of birth",
+        "Submitting a valid manual registration returns the user to the sign-in page with a visible success message"
+      ],
+      "codeHints": "Model forms with controlled inputs via useState; validate required fields before submit. Reuse existing Google auth provider for the Google creation path so account identity matches current cloud save expectations. Keep auth methods behind a shared service layer and preserve guest account keys/session format."
+    },
+    {
+      "index": 2,
+      "name": "Polish and Finish",
+      "description": "Review the full auth-to-game loop on mobile and desktop, including navigation between welcome, sign in, register, guest, and the preserved game/levels/maps flow. Add a clear way to go back, sign out, and restart the auth journey without breaking saves. Verify touch usability, error states, and prompt the user to generate image assets for the new auth screens.",
+      "status": "completed",
+      "acceptanceCriteria": [
+        "On a phone-sized screen, all auth buttons and form fields are usable without horizontal scrolling",
+        "After sign out or restart, the app returns to the first welcome screen with Sign in and Guest choices",
+        "After signing in, registering then signing in, or entering as Guest, the user can still reach the existing game, levels, and maps flow correctly"
+      ],
+      "codeHints": "Add a restart/sign-out handler that clears only session state for the active mode and preserves the correct save linkage for Google and guest users. Use shared navigation guards so auth completion enters the existing app route cleanly. After implementation, ask the user if they want generated image assets for welcome/sign-in/register screens."
+    }
+  ]
+}
