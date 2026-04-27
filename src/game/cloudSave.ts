@@ -130,15 +130,17 @@ export const cloudSave = {
   },
 
   async signInWithGoogle() {
-    const client = getSupabaseClient();
-    if (!client) throw new Error("Supabase client not available");
-    return client.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: window.location.origin,
-      },
-    });
-  },
-
-  mergeSnapshots,
+  const client = getSupabaseClient();
+  if (!client) throw new Error("Supabase client not available");
+  const redirectTo =
+    window.location.hostname === "localhost"
+      ? "http://localhost:5173"
+      : "https://flood-fill-gem.vercel.app";
+  return client.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo,
+    },
+  });
+}
 };
