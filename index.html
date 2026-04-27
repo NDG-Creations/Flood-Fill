@@ -12,13 +12,17 @@
     <title>FloodFill Game</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+      // Store original Supabase createClient before overriding
+      const _originalCreateClient = window.supabase?.createClient;
       window.supabase = window.supabase || {};
-      const _supabase = window.supabase;
-      _supabase.createClient = function () {
-        return window.supabase.createClient(
-          "https://lpnropkxykmarndtnhan.supabase.co",
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwbnJvcGt4eWttYXJuZHRuaGFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNjA3ODYsImV4cCI6MjA5MjgzNjc4Nn0.DjtK4jrCYa3sxT1qnt0nUelcgbKxZfcy9K9GU6pgs_s"
-        );
+      window.supabase.createClient = function () {
+        if (_originalCreateClient) {
+          return _originalCreateClient(
+            "https://lpnropkxykmarndtnhan.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwbnJvcGt4eWttYXJuZHRuaGFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNjA3ODYsImV4cCI6MjA5MjgzNjc4Nn0.DjtK4jrCYa3sxT1qnt0nUelcgbKxZfcy9K9GU6pgs_s"
+          );
+        }
+        return null;
       };
     </script>
     <style>
