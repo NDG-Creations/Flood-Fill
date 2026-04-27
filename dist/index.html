@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#09111f" />
+    <meta name="description" content="FloodFill - A puzzle game" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png" />
+    <link rel="apple-touch-icon" href="/images/icon-192.png" />
+    <title>FloodFill Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      window.supabase = window.supabase || {};
+      window.supabase.createClient = function () {
+        return window.supabase.createClient(
+          "https://lpnropkxykmarndtnhan.supabase.co",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwbnJvcGt4eWttYXJuZHRuaGFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNjA3ODYsImV4cCI6MjA5MjgzNjc4Nn0.DjtK4jrCYa3sxT1qnt0nUelcgbKxZfcy9K9GU6pgs_s"
+        );
+      };
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body,
+      #root {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+    </style>
+    <script type="module" crossorigin src="./index-glho4BrK.js"></script>
+    <link rel="stylesheet" crossorigin href="./index-Cdni9b-k.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
